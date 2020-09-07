@@ -15,7 +15,7 @@ public class VarianceCalculatorandComparator {
           mean /= data.length;
           double variance = 0;
           for (int i = 0; i < data.length; i++) {
-              variance += Math.pow(data[i] - mean, 2);
+              variance += Math.pow(data[i] - mean, data.length);
           }
           variance /= data.length;
           System.out.println("Varience Calculated:-"+variance);
