@@ -19,7 +19,7 @@ public class InitiateDrivers extends BrowserConfigurationFile{
             Edge_Browser_setUp(getBrowserName());
         }
     }
-    @AfterSuite(enabled=false)
+    @AfterSuite(enabled=true)
     protected void tearDown() throws Exception {
         if (getDriver() != null) {
             getDriver().quit();
