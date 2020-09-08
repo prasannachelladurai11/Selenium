@@ -6,6 +6,7 @@ import com.FucntionalityModules.VarianceFunctionalityModule;
 import com.FucntionalityModules.WeatherPageAuthentication;
 import cucumber.api.java.en.And;
 import org.openqa.selenium.OutputType;
+import com.Base.InitiateDrivers;
 import org.openqa.selenium.TakesScreenshot;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -63,7 +64,7 @@ public class FunctionalStepDefinition {
   @After
 public void tearDown(Scenario scenario) {
     if (scenario.isFailed()) {
-      final byte[] screenshot = ((TakesScreenshot) BrowserStackSetup.getDriver()).getScreenshotAs(OutputType.BYTES);
+      final byte[] screenshot = ((TakesScreenshot) InitiateDrivers.getDriver()).getScreenshotAs(OutputType.BYTES);
       scenario.embed(screenshot, "image/png");
     	}
 	}
