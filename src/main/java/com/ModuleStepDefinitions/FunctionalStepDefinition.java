@@ -5,8 +5,12 @@ import com.FucntionalityModules.LauchWebsite;
 import com.FucntionalityModules.VarianceFunctionalityModule;
 import com.FucntionalityModules.WeatherPageAuthentication;
 import cucumber.api.java.en.And;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.Scenario;
+import cucumber.api.java.After;
 import cucumber.api.java.en.When;
 
 public class FunctionalStepDefinition {
@@ -56,4 +60,11 @@ public class FunctionalStepDefinition {
     public void the_temperature_of_should_match_with_Api_results() throws Throwable {
         VarianceFunctionalityModule.find_variance_and_authenticate_weather();
     }
+  @After
+public void tearDown(Scenario scenario) {
+    if (scenario.isFailed()) {
+      final byte[] screenshot = ((TakesScreenshot) BrowserStackSetup.getDriver()).getScreenshotAs(OutputType.BYTES);
+      scenario.embed(screenshot, "image/png");
+    	}
+	}
 }
